@@ -1,3 +1,10 @@
+" autoload plug if it is not already available 
+if empty(glob('~/.vim/autoload/plug.vim'))
+	silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+	  \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 " Specify a directory for plugins
 " - For Neovim: ~/.local/share/nvim/plugged
 " - Avoid using standard Vim directory names like 'plugin'
@@ -9,7 +16,8 @@ Plug 'tpope/vim-commentary'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'powerline/powerline'
-Plug 'jpalardy/vim-slime.git'
+" Init plugin system
+call plug#end()
 
 let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
 execute "set rtp+=" . g:opamshare . "/merlin/vim"
@@ -36,5 +44,3 @@ set autoindent
 set smartindent 
 set foldmethod=syntax
 set foldclose=all
-"Init plugin system"
-call plug#end()

@@ -14,8 +14,8 @@ Xft.hintstyle:              hintslight
 ! font
 *.font: IBM Plex Mono:style=Regular:size=10
 
-! special 
-*.foreground:	#bbbbbb
+! special
+*.foreground: 	#bbbbbb
 *.background:   #1b1b1b
 *.cursorColor:  #c2c2c2
 
@@ -33,7 +33,7 @@ Xft.hintstyle:              hintslight
 
 ! yellow
 *.color3:       #de935f
-*.color11:      #f0c674
+*.color11:      #af87d7
 
 ! blue
 *.color4:       #727373

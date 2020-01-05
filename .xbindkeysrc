@@ -42,10 +42,22 @@
 # specify a mouse button
 
 "dmenu_path; dmenu_run -i -nb white -nf black -sb gray -sf white -w 500 -x 710 -y 400 -fn IBMPlexMono -p Find:"
-  Alt + P 
+ Alt + P 
+
+"systemctl suspend"
+ Mod4 + X
+
+"physlock" 
+ Mod4 + L 
 
 "chromium" 
  Alt + W
+
+"xbacklight -inc 20"
+F6
+
+"xbacklight -dec 20"
+F5
 
 "pactl set-sink-volume @DEFAULT_SINK@ +3000"
 F3
