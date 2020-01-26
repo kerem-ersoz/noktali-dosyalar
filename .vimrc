@@ -32,15 +32,32 @@ let g:vimtex_quickfix_latexlog = {
       \}
 colorscheme photon
 set number relativenumber 
-set breakindent
 set hlsearch
 set completeopt=menu
+
+" toggle numbers for less annoying copying to clipboard 
+map  <c-n> :set invnumber invrelativenumber <cr>
+
+" remove search highlight on repeated presses of esc
 nnoremap <esc><esc> :noh<return> 
-nnoremap j gj
-nnoremap gj j 
-nnoremap gk k 
-nnoremap k gk 
+
+" remaps for copying and pasting 
+nmap <c-p> :set paste! <cr>
+" nnoremap <c-v> <a-v>
+
+" indentation-related settings 
+set breakindent
+set expandtab
+set tabstop=2
+set shiftwidth=2
 set autoindent
 set smartindent 
+filetype on 
+filetype plugin on 
+filetype indent on 
+
 set foldmethod=syntax
-set foldclose=all
+
+
+" limit the width of text to 72 characters for neomutt 
+au BufRead /tmp/mutt/-* set tw=72
