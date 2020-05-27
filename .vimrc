@@ -15,17 +15,16 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'junegunn/goyo.vim'
+Plug 'triglav/vim-visual-increment'
 Plug 'powerline/powerline'
 " Init plugin system
 call plug#end()
-
-let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
-execute "set rtp+=" . g:opamshare . "/merlin/vim"
 
 " Disable overfull/underfull \hbox and all package warnings
 let g:vimtex_quickfix_latexlog = {
       \ 'overfull' : 0,
       \ 'underfull' : 0,
+      \ 'font'    : 0,
       \ 'packages' : {
       \   'default' : 0,
       \ },
@@ -41,8 +40,17 @@ map  <c-n> :set invnumber invrelativenumber <cr>
 " remove search highlight on repeated presses of esc
 nnoremap <esc><esc> :noh<return> 
 
-" remaps for copying and pasting 
-nmap <c-p> :set paste! <cr>
+" keybinding for turning cursorline on and off
+nnoremap ;l :set cursorline!<return>
+
+" scroll using touchpad (intepreted by st as c-e/c-y) also moves cursor
+nnoremap <c-e> j
+nnoremap <c-y> k
+nnoremap k gk
+nnoremap j gj
+
+" remaps for copying and pasting, does not work
+nnoremap <space><space><space> :set paste!<return>
 " nnoremap <c-v> <a-v>
 
 " indentation-related settings 
