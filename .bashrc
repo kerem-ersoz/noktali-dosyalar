@@ -6,8 +6,8 @@
 [[ $- != *i* ]] && return
 
 # enable extended globbing 
-shopt -s extglob
-shopt -s expand_aliases
+# shopt -s extglob
+# shopt -s expand_aliases
 
 ########
 #aliases
@@ -24,7 +24,7 @@ alias dd='sudo mv -t ~/.local/share/.trash'
 alias trash='cd ~/.local/share/.trash'
 alias ranger='ranger --choosedir=$HOME/.config/ranger/rangerdir; LASTDIR=`cat $HOME/.config/ranger/rangerdir`; cd "$LASTDIR"'
 
-PS1='[\u@\h \W]\$ '
+# PS1='[\u@\h \W]\$ '
 
 # use custom ranger config 
 RANGER_LOAD_DEFAULT_RC=FALSE 
@@ -33,4 +33,4 @@ RANGER_LOAD_DEFAULT_RC=FALSE
 export UE4_ROOT=~/UnrealEngine_4.22
 
 # evaluate opam env (this is a hacky replacement for the hook that opam uses after installing utop 
-eval $(opam env)
+# eval $(opam env)

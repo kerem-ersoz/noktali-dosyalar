@@ -29,6 +29,8 @@ let g:vimtex_quickfix_latexlog = {
       \   'default' : 0,
       \ },
       \}
+
+let g:tex_flavor = 'latex'
 colorscheme photon
 set number relativenumber 
 set hlsearch
