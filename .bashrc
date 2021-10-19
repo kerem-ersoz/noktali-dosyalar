@@ -14,7 +14,7 @@ shopt -s expand_aliases
 ########
 
 cdls () {
-  cd $1 && texclean ; ls -lhTF
+  builtin cd $1 && texclean ; ls -lhTF
 }
 
 function texclean () { 
@@ -22,6 +22,7 @@ function texclean () {
 }
 
 alias cd='cdls'
+alias ls='ls -lhtF' 
 alias gh='cd ~/Documents/GitHub'
 # alias make='sudo make'
 # alias pacman='sudo pacman'
