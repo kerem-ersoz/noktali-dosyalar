@@ -17,20 +17,27 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'triglav/vim-visual-increment'
 Plug 'powerline/powerline'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'ycm-core/YouCompleteMe'
 " Init plugin system
 call plug#end()
 
 " Disable overfull/underfull \hbox and all package warnings
-let g:vimtex_quickfix_latexlog = {
-      \ 'overfull' : 0,
-      \ 'underfull' : 0,
-      \ 'font'    : 0,
-      \ 'packages' : {
-      \   'default' : 0,
-      \ },
-      \}
+let g:vimtex_quickfix_ignore_filters = [
+      \ 'underfull',
+      \ 'overfull',
+      \ 'Underfull',
+      \ 'Overfull',
+      \ 'Fancyhdr',
+      \ 'fancyhdr',
+      \]
 
 let g:tex_flavor = 'latex'
+
+" apply generic ycm conf on startup 
+let g:ycm_global_ycm_extra_conf = '~/.vim/plugged/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
+
 colorscheme photon
 set number relativenumber 
 set hlsearch
@@ -42,6 +49,8 @@ map  <c-n> :set invnumber invrelativenumber <cr>
 " remove search highlight on repeated presses of esc
 nnoremap <esc><esc> :noh<return> 
 
+" enable clicking to move cursor
+set mouse=a
 " keybinding for turning cursorline on and off
 nnoremap ;l :set cursorline!<return>
 
@@ -51,7 +60,16 @@ nnoremap <c-y> k
 nnoremap k gk
 nnoremap j gj
 
-" remaps for copying and pasting, does not work
+" autocomplete braces in insert mode
+" inoremap { {}<ESC>ha
+" inoremap [ []<ESC>ha
+" inoremap ( ()<ESC>ha
+" inoremap " ""<ESC>ha
+
+" change all occurrences of word under cursor 
+nnoremap <Leader>s :%s/\<<C-r><C-w>\>//gc<Left><Left><Left>
+
+" remaps for copying and pasting, these don't work and idk why
 nnoremap <space><space><space> :set paste!<return>
 " nnoremap <c-v> <a-v>
 
@@ -67,7 +85,3 @@ filetype plugin on
 filetype indent on 
 
 set foldmethod=syntax
-
-
-" limit the width of text to 72 characters for neomutt 
-au BufRead /tmp/mutt/-* set tw=72
