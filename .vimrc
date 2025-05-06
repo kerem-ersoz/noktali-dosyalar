@@ -75,6 +75,9 @@ set foldmethod=syntax
 " this is so w doesn't skip over underscores
 set iskeyword-=_
 
+" paste in visual mode without yanking what you just pasted over
+xnoremap p pgvy
+
 " match <> with %
 set matchpairs+=<:>
 
